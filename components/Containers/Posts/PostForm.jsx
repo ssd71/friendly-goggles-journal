@@ -19,7 +19,7 @@ const PostFormContainer = (props) => {
     content: '',
   });
   useEffect(() => {
-    fetch(`http://${window.location.host}/api/post/${pid}`, {
+    fetch(`/api/post/${pid}`, {
       headers: {
         cookie: document.cookie,
       },
@@ -29,13 +29,13 @@ const PostFormContainer = (props) => {
         setPostdata(data);
       }).catch((err) => {
         console.log(err);
-        setMessage('Couldn\'t process your request at the moment.');
+        // setMessage('Couldn\'t process your request at the moment.');
       });
   }, [pid]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    fetch(`http://${window.location.host}${submitAction}`, {
+    fetch(submitAction, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

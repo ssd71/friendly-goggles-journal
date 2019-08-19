@@ -54,8 +54,8 @@ module.exports = ({ User, Post }) => {
 
   router.post('/api/post/:postid', async (req, res) => {
     try {
-      const n = await Post.query().findById(req.params.postid).patch(req.body);
-      res.send({ numUpdated: n });
+      await Post.query().findById(req.params.postid).patch(req.body);
+      res.send({ message: 'ok' });
     } catch (err) {
       res.status(500);
       const message = process.env.NODE_ENV === 'development' ? err : 'Internal Server Error';
