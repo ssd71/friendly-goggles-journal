@@ -19,7 +19,8 @@ module.exports = ({ User, Post }) => {
       res.send(posts);
     } catch (err) {
       res.status(500);
-      const message = process.env.NODE_ENV === 'development' ? err : 'Internal Server Error';
+      const message = err;
+      console.log({message});
       res.send({ message });
     }
   });
@@ -35,7 +36,8 @@ module.exports = ({ User, Post }) => {
       }
     } catch (err) {
       res.status(500);
-      const message = process.env.NODE_ENV === 'development' ? err : 'Internal Server Error';
+      const message = err;
+      console.log({message});
       res.send({ message });
     }
   });
@@ -47,7 +49,8 @@ module.exports = ({ User, Post }) => {
       res.send({ id: post.id });
     } catch (err) {
       res.status(500);
-      const message = process.env.NODE_ENV === 'development' ? err : 'Internal Server Error';
+      const message = err;
+      console.log({message});
       res.send({ message });
     }
   });
@@ -59,6 +62,7 @@ module.exports = ({ User, Post }) => {
     } catch (err) {
       res.status(500);
       const message = err;
+      console.log({message});
       res.send({ message });
     }
   });
