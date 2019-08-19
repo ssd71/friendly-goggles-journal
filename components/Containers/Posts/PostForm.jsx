@@ -70,7 +70,7 @@ const PostFormContainer = (props) => {
           value="Submit"
           onClick={
             (event) => {
-              event.target.disabled = true;
+              event.target.style.display = 'none';
             }
           }
         />
