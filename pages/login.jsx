@@ -6,7 +6,7 @@ const { FormContainer } = components.Containers.User;
 const loginForm = () => (
   <FormContainer
     purpose="Log in"
-    submitAction="http://localhost:3000/login"
+    submitAction="/login"
     submitText="Log in"
   >
     {({ userdata, setuserdata }) => (

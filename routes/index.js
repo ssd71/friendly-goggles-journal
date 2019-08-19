@@ -70,7 +70,7 @@ module.exports = (server, nextHandler) => {
 
   server.get('/logout', (req, res) => {
     req.logOut();
-    res.redirect('/');
+    res.send({ message: 'ok' });
   });
 
   server.get('/createpost', async (req, res) => {

@@ -50,7 +50,7 @@ module.exports = ({ User, Post }) => {
     } catch (err) {
       res.status(500);
       const message = err;
-      console.log({message});
+      console.log({ message });
       res.send({ message });
     }
   });
@@ -70,14 +70,16 @@ module.exports = ({ User, Post }) => {
   router.get('/api/deletepost/:postid', async (req, res) => {
     const { postid } = req.params;
     const post = await Post.query().findById(postid);
+    if (!post) {
+      return res.send({ message: 'ok' });
+    }
     const user = await User.query().findById(req.user.id);
     if (post.user_id === req.user.id) {
       await Post.deletePost(user, { postid });
-      res.redirect('/dashboard');
-    } else {
-      res.status(403);
-      res.send({ message: 'Sorry, you can\'t access this resource :-(' });
+      return res.send({ message: 'ok' });
     }
+    res.status(403);
+    return res.send({ message: 'Sorry, you can\'t access this resource :-(' });
   });
 
   router.get('/api/user', (req, res) => {
