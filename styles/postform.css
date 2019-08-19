@@ -1,0 +1,14 @@
+
+
+.input__title {
+  padding: 20px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.input__content {
+  height: 200px;
+  width: 300px;
+  font-size: 1rem;
+  padding: 5px;
+}

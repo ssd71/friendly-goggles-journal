@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import components from '../../components';
+import '../../styles/postform.css';
 
 const { PostForm } = components.Containers.Posts;
 
