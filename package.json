@@ -1,0 +1,61 @@
+{
+  "name": "friendly-goggles-journal",
+  "version": "1.0.0",
+  "description": "A journaling application",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "connect-session-knex": "^1.4.0",
+    "express": "^4.17.1",
+    "express-promise-router": "^3.0.3",
+    "express-session": "^1.16.2",
+    "isomorphic-unfetch": "^3.0.0",
+    "knex": "^0.19.1",
+    "morgan": "^1.9.1",
+    "next": "^9.0.3",
+    "objection": "^1.6.9",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "pg": "^7.12.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "sqlite3": "^4.0.9",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.2",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^18.0.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "jest": "^24.8.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest",
+    "migrate": "knex migrate:latest",
+    "knex": "knex",
+    "build": "next build",
+    "lint": "eslint \"./**/*.js\" \"./pages/**\"",
+    "dev": "export NODE_ENV=\"development\" && node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssd71/friendly-goggles-journal.git"
+  },
+  "author": "ssd71",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ssd71/friendly-goggles-journal/issues"
+  },
+  "homepage": "https://github.com/ssd71/friendly-goggles-journal#readme"
+}
