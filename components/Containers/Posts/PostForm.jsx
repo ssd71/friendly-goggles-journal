@@ -70,7 +70,7 @@ const PostFormContainer = (props) => {
           value="Submit"
           onClick={
             (event) => {
-              event.target.style.disabled = true;
+              event.target.disabled = true;
             }
           }
         />
