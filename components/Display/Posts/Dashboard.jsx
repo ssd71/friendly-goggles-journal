@@ -47,7 +47,7 @@ const Dashboard = (props) => {
                   },
                 });
                 Router.push({
-                  pathname: '/login',
+                  pathname: '/',
                 });
               }
             }
