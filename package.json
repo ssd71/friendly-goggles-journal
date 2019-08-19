@@ -43,7 +43,7 @@
     "start": "node index.js",
     "migrate": "knex migrate:latest",
     "knex": "knex",
-    "build": "next build && migrate",
+    "build": "next build && knex migrate:latest",
     "lint": "eslint \"./**/*.js\" \"./pages/**\"",
     "dev": "export NODE_ENV=\"development\" && node index.js"
   },
