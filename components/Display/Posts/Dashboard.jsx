@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Router from 'next/router';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 const Dashboard = (props) => {
+  const Router = useRouter();
   const {
     searchQuery,
     setSearchQuery,

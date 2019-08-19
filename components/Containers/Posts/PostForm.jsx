@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Router, { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
 import '../../../styles/authform.css';
 
 const PostFormContainer = (props) => {
+  const Router = useRouter();
   const {
     purpose,
     submitAction,
@@ -19,7 +20,7 @@ const PostFormContainer = (props) => {
     content: '',
   });
   useEffect(() => {
-    if (pid != -1) {
+    if (pid !== -1) {
       fetch(`/api/post/${pid}`, {
         headers: {
           cookie: document.cookie,
