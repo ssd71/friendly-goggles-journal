@@ -11,7 +11,7 @@ const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
   registerRoutes(server, handle);
-  server.listen(3000);
+  server.listen(process.env.PORT || 3000);
 });
 
 module.exports = server;
