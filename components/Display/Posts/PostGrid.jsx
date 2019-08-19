@@ -4,42 +4,42 @@ import Link from 'next/link';
 
 const PostGrid = (props) => {
   const { posts } = props;
+
+  const deleteHandler = (event) => {
+    const pid = event.target.id.slice(9);
+    console.log(pid);
+    fetch(`/api/deletepost/${pid}`, {
+      headers: {
+        cookie: document.cookie,
+      },
+    });
+    document.getElementById(`post${pid}`).style.display = 'none';
+  };
+
   return (
     <main className="post-main">
       {
-      posts.map((post) => {
-        const { id } = post;
-        return (
-          <div className="post" key={id} id={`post${id}`} style={{ backgroundColor: 'white' }}>
-            <div className="post__options">
-              <label htmlFor="deletebtn" className="deletebtn">
-                <input
-                  type="button"
-                  id="deletebtn"
-                  onClick={
-                      () => {
-                        fetch(`/api/deletepost/${id}`, {
-                          headers: {
-                            cookie: document.cookie,
-                          },
-                        });
-                        document.getElementById(`post${id}`).style.display = 'none';
-                      }
-                    }
-                />
+      posts.map((post) => (
+        <div className="post" key={post.id} id={`post${post.id}`} style={{ backgroundColor: 'white' }}>
+          <div className="post__options">
+            <label htmlFor={`deletebtn${post.id}`} className="deletebtn">
+              <input
+                type="button"
+                id={`deletebtn${post.id}`}
+                onClick={deleteHandler}
+              />
                   ✕
-              </label>
-            </div>
-            <Link href="/post/[pid]" as={`/post/${post.id}`}>
-              <h3 className="post-title">{post.title}</h3>
-            </Link>
-            <div className="post-content">
-              {post.content.slice(0, 329)}
-              {post.content.length > 330 ? '...' : ''}
-            </div>
+            </label>
           </div>
-        );
-      })
+          <Link href="/post/[pid]" as={`/post/${post.id}`}>
+            <h3 className="post-title">{post.title}</h3>
+          </Link>
+          <div className="post-content">
+            {post.content.slice(0, 329)}
+            {post.content.length > 330 ? '...' : ''}
+          </div>
+        </div>
+      ))
 }
     </main>
   );
