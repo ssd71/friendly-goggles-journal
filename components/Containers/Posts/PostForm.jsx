@@ -65,7 +65,15 @@ const PostFormContainer = (props) => {
         {message}
         <br />
         <br />
-        <input type="submit" value="Submit" />
+        <input
+          type="submit"
+          value="Submit"
+          onClick={
+            (event) => {
+              event.target.style.disabled = true;
+            }
+          }
+        />
       </form>
     </div>
   );
