@@ -58,7 +58,7 @@ module.exports = ({ User, Post }) => {
       res.send({ message: 'ok' });
     } catch (err) {
       res.status(500);
-      const message = process.env.NODE_ENV === 'development' ? err : 'Internal Server Error';
+      const message = err;
       res.send({ message });
     }
   });
