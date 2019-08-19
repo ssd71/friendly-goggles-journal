@@ -9,7 +9,7 @@ const post = () => {
   const Router = useRouter();
   const { pid } = Router.query;
   return (
-    <PostForm post={post} pid={parseInt(pid, 10)} purpose="Edit post" submitAction={`/api/post/${pid}`}>
+    <PostForm pid={parseInt(pid, 10)} purpose="Edit post" submitAction={`/api/post/${pid}`}>
       {
           ({ postdata, setPostdata }) => (
             <>
