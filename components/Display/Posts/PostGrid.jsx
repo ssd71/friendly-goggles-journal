@@ -10,17 +10,25 @@ const PostGrid = (props) => {
       posts.map((post) => {
         const { id } = post;
         return (
-          <div className="post" key={id} style={{ backgroundColor: 'white' }}>
+          <div className="post" key={id} id={`post${id}`} style={{ backgroundColor: 'white' }}>
             <div className="post__options">
-              <Link href={`/api/deletepost/${id}`}>
-                <label htmlFor="deletebtn" className="deletebtn">
-                  <input
-                    type="button"
-                    id="deletebtn"
-                  />
+              <label htmlFor="deletebtn" className="deletebtn">
+                <input
+                  type="button"
+                  id="deletebtn"
+                  onClick={
+                      () => {
+                        fetch(`/api/deletepost/${id}`, {
+                          headers: {
+                            cookie: document.cookie,
+                          },
+                        });
+                        document.getElementById(`post${id}`).style.display = 'none';
+                      }
+                    }
+                />
                   ✕
-                </label>
-              </Link>
+              </label>
             </div>
             <Link href="/post/[pid]" as={`/post/${post.id}`}>
               <h3 className="post-title">{post.title}</h3>

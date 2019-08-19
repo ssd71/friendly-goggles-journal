@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 const Dashboard = (props) => {
+  const Router = useRouter();
   const {
     searchQuery,
     setSearchQuery,
@@ -27,19 +29,29 @@ const Dashboard = (props) => {
               onChange={(event) => setSearchQuery(event.target.value)}
             />
           </label>
-          <Link href="/createpost">
+          <Link href="/post">
             <input type="button" className="createbtn" value="+" />
           </Link>
         </div>
         <div className="usertext">
           {user ? `Hey ${user}! ` : ' '}
-          <Link href="/logout">
-            <input
-              className="signoutbtn"
-              type="button"
-              value="Sign out"
-            />
-          </Link>
+          <input
+            className="signoutbtn"
+            type="button"
+            value="Sign out"
+            onClick={
+              () => {
+                fetch('/logout', {
+                  headers: {
+                    cookie: document.cookie,
+                  },
+                });
+                Router.push({
+                  pathname: '/',
+                });
+              }
+            }
+          />
         </div>
       </header>
       {children({ posts: queryPosts })}

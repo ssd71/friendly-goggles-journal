@@ -1,16 +1,12 @@
 import React from 'react';
-import { useRouter } from 'next/router';
-import components from '../../components';
-import '../../styles/postform.css';
+import components from '../components';
+import '../styles/postform.css';
 
 const { PostForm } = components.Containers.Posts;
 
-const post = () => {
-  const Router = useRouter();
-  const { pid } = Router.query;
-  return (
-    <PostForm pid={parseInt(pid, 10)} purpose="Edit post" submitAction={`/api/post/${pid}`}>
-      {
+const Post = () => (
+  <PostForm purpose="New post" submitAction="/api/post">
+    {
           ({ postdata, setPostdata }) => (
             <>
               <input
@@ -36,8 +32,7 @@ const post = () => {
             </>
           )
         }
-    </PostForm>
-  );
-};
+  </PostForm>
+);
 
-export default post;
+export default Post;

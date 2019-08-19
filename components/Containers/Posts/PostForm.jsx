@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Router, { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
 import '../../../styles/authform.css';
 
 const PostFormContainer = (props) => {
+  const Router = useRouter();
   const {
     purpose,
     submitAction,
@@ -19,18 +20,20 @@ const PostFormContainer = (props) => {
     content: '',
   });
   useEffect(() => {
-    fetch(`/api/post/${pid}`, {
-      headers: {
-        cookie: document.cookie,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setPostdata(data);
-      }).catch((err) => {
-        console.log(err);
-        // setMessage('Couldn\'t process your request at the moment.');
-      });
+    if (pid !== -1) {
+      fetch(`/api/post/${pid}`, {
+        headers: {
+          cookie: document.cookie,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setPostdata(data);
+        }).catch((err) => {
+          console.log(err);
+          // setMessage('Couldn\'t process your request at the moment.');
+        });
+    }
   }, [pid]);
 
   const handleSubmit = async (event) => {
@@ -42,13 +45,12 @@ const PostFormContainer = (props) => {
       },
       body: JSON.stringify(postdata),
     }).then((res) => {
-      document.cookie = res.headers.cookie;
       if (res.ok) {
         Router.push({
           pathname: '/dashboard',
         });
       } else {
-        res.text().then((data) => console.log(data));
+        res.text().then((data) => setMessage(data));
       }
     });
   };
@@ -73,7 +75,11 @@ PostFormContainer.propTypes = {
   purpose: PropTypes.string.isRequired,
   children: PropTypes.func.isRequired,
   submitAction: PropTypes.string.isRequired,
-  pid: PropTypes.number.isRequired,
+  pid: PropTypes.number,
+};
+
+PostFormContainer.defaultProps = {
+  pid: -1,
 };
 
 export default PostFormContainer;
