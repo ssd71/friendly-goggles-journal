@@ -39,7 +39,7 @@ const Dashboard = (props) => {
             className="signoutbtn"
             type="button"
             value="Sign out"
-            onChange={
+            onClick={
               () => {
                 fetch('/logout', {
                   headers: {
