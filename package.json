@@ -36,15 +36,13 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^1.7.0",
-    "jest": "^24.8.0"
+    "eslint-plugin-react-hooks": "^1.7.0"
   },
   "scripts": {
     "start": "node index.js",
-    "test": "jest",
     "migrate": "knex migrate:latest",
     "knex": "knex",
-    "build": "next build",
+    "build": "next build && migrate",
     "lint": "eslint \"./**/*.js\" \"./pages/**\"",
     "dev": "export NODE_ENV=\"development\" && node index.js"
   },
