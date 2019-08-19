@@ -1,0 +1,41 @@
+.formwrapper {
+  background-color: white;
+  text-align: center;
+  max-width: 500px;
+  max-height: 600px;
+  margin: 100px auto;
+  /* margin-top: 100px; */
+  border-radius: 2%;
+  padding: 30px 20px;
+  display: relative;
+}
+
+.formwrapper h3 {
+  font-size: 2rem;
+  top: 30px;
+  padding: 40px 0;
+  border-bottom: solid 1px #d1d1d1;
+}
+
+.formwrapper input {
+  margin: 10px 0;
+  padding: 10px;
+  border: solid 1px #eee;
+}
+
+  .formwrapper input:not(:last-child):active,
+  .formwrapper input:not(:last-child):focus {
+    border-color: #bbb;
+  }
+
+
+  .formwrapper input[type="submit"] {
+    padding: 20px 40px;
+    margin: auto;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    border: solid 1px black;
+    border-radius: 3px;
+    cursor: pointer;
+  }
