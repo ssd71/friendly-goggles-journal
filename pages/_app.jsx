@@ -23,6 +23,7 @@ class MyApp extends App {
     return (
       <Container>
         <Head>
+          <title>Friendly Goggles</title>
           <link
             href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
             rel="stylesheet"
