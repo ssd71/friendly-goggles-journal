@@ -28,6 +28,7 @@
       "react/jsx-props-no-spreading": "off",
       "max-classes-per-file": "off",
       "no-use-before-define": "off",
-      "no-shadow": "off"
+      "no-shadow": "off",
+      "no-param-reassign": "off"
     }
 }
