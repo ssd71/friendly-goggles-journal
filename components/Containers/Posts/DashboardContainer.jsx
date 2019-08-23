@@ -12,7 +12,7 @@ const DashboardContainer = (props) => {
 
   const [user, setUser] = useState('');
   useEffect(() => {
-    fetch(`http://${window.location.host}/api/user`, {
+    fetch('/api/user', {
       headers: {
         cookie: document.cookie,
       },
