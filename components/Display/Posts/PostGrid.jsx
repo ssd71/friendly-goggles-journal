@@ -7,7 +7,7 @@ const PostGrid = (props) => {
 
   const deleteHandler = (event) => {
     const pid = event.target.id.slice(9);
-    console.log(pid);
+
     fetch(`/api/deletepost/${pid}`, {
       headers: {
         cookie: document.cookie,
