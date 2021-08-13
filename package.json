@@ -18,7 +18,7 @@
     "isomorphic-unfetch": "^3.0.0",
     "knex": "^0.19.5",
     "morgan": "^1.9.1",
-    "next": "^9.0.3",
+    "next": "^11.1.0",
     "objection": "^1.6.9",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
