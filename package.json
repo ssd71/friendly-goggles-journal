@@ -16,7 +16,7 @@
     "express-promise-router": "^3.0.3",
     "express-session": "^1.16.2",
     "isomorphic-unfetch": "^3.0.0",
-    "knex": "^0.19.5",
+    "knex": "^2.4.0",
     "morgan": "^1.9.1",
     "next": "^9.0.3",
     "objection": "^1.6.9",
